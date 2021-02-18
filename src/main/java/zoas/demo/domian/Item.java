@@ -5,6 +5,8 @@ import lombok.Setter;
 import zoas.demo.exception.NotEnoughStockException;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -26,6 +28,9 @@ public class Item {
 
     @Column(name = "itme_detail")
     private String detail;      // 제품 설명
+
+    @ManyToMany(mappedBy = "items")    //연관관계 수정 필요
+    private List<Category> categories = new ArrayList<>();
 
 
     public void addStock(int quantity){     //제품 수량 증가 메소드 (주문취소시)
