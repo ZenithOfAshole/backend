@@ -29,6 +29,10 @@ public class Item {
     @Column(name = "itme_detail")
     private String detail;      // 제품 설명
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
     @ManyToMany(mappedBy = "items")    //연관관계 수정 필요
     private List<Category> categories = new ArrayList<>();
 

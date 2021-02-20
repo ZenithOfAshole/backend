@@ -20,7 +20,7 @@ public class ItemRepository {
             //item 이 처음 jpa에 저장될 때까지 id를 가지고 저장하지 않는다.
             em.persist(item);
         }else{
-            em.merge(item);
+            em.merge(item); //기존 item 변경사항 merge
         }
     }
 
