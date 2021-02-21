@@ -7,6 +7,7 @@ import zoas.demo.domian.User;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -24,6 +25,12 @@ public class UserRepository {
 
     public User findOne(Long id){
         return em.find(User.class,id);
+    }
+
+    public User findByEmail(String email ){
+        return em.createQuery("select u from User u where u.email =:email",User.class)
+                .setParameter("email",email)
+                .getSingleResult();
     }
 
 
