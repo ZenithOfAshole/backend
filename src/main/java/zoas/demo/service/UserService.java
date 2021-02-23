@@ -38,8 +38,8 @@ public class UserService {
         }
         //클라에서 쏘는 pw encode
         String encodepw = encoder.encode(userPw);
-        if(user.getPassword().equals(encodepw) == false){
-            return null;
+        if(user.getPassword().equals(encodepw) == false){   // jpa가 불러온 pw 와 비교
+            return null;    // 없다면 null 반환
         }
         return user;
     }
