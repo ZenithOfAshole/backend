@@ -10,9 +10,9 @@ import javax.persistence.*;
 @Entity
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class OrderItem {
+public class OrderDetail {
     @Id @GeneratedValue
-    @Column(name = "order_item_id")
+    @Column(name = "order_detail_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -23,8 +23,10 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
+    @Column(name = "order_detail_order_price")
     private int orderPrice;
 
+    @Column(name = "order_detail_count")
     private int count;
 
 

@@ -34,7 +34,7 @@ public class Order {
 
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) //order를 persist 걸어도 orderitems 도 persist(저장)
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderDetail> orderItems = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;

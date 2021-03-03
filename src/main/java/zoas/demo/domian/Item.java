@@ -18,15 +18,22 @@ public class Item {
     @Column(name = "item_id")
     private Long id;
 
+    @Column(name = "item_name")
     private String name;
 
+    @Column(name = "item_price")
     private int price;
 
+    @Column(name = "item_thumnail")
+    private String thumnail;
+
+    @Column(name = "item_img")
     private String img; //제품 이미지
 
+    @Column(name  = "item_stock_quantity")
     private int stockQuantity;
 
-    @Column(name = "itme_detail")
+    @Column(name = "item_detail")
     private String detail;      // 제품 설명
 
     @ManyToOne(fetch = FetchType.LAZY)

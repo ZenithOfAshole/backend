@@ -25,6 +25,6 @@ public class Cart {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<Item> items= new ArrayList<>();
 
-
-    private int amount; //장바구니 내 주문수량
+    @Column(name = "cart_quantity")
+    private int quantity; //장바구니 내 주문수량
 }

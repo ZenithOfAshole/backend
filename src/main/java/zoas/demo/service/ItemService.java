@@ -21,8 +21,8 @@ public class ItemService {
         itemRepository.save(item);
     }
 
-    public List<Item> findItems(Category category){ //category별 item list 불러오기
-        Long categoryId = category.getId();
+    public List<Item> findItemsByCategoryId(Long categoryId){ //category별 item list 불러오기
+
         return itemRepository.findByCategory(categoryId);
     }
 
