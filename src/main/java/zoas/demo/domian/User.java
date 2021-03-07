@@ -1,6 +1,7 @@
 package zoas.demo.domian;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Data
 public class User {
 
     @Id

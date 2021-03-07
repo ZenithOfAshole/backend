@@ -2,6 +2,7 @@ package zoas.demo.repository;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import zoas.demo.domian.User;
 
@@ -11,27 +12,13 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class UserRepository {
+public interface UserRepository extends CrudRepository<User, Long> {
 
-    private EntityManager em;
 
-    public UserRepository(EntityManager em) {
-        this.em = em;
-    }
 
-    public void save(User user) {
-        em.persist(user);
-    }
+    User findOne(Long id);
 
-    public User findOne(Long id){
-        return em.find(User.class,id);
-    }
-
-    public User findByEmail(String email ){
-        return em.createQuery("select u from User u where u.email =:email",User.class)
-                .setParameter("email",email)
-                .getSingleResult();
-    }
+  User findByEmail(String email);
 
 
 }

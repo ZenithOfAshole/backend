@@ -1,4 +1,4 @@
-package zoas.demo.controller;
+package zoas.demo.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
