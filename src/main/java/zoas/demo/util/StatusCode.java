@@ -1,4 +1,4 @@
-package zoas.demo.model;
+package zoas.demo.util;
 
 public class StatusCode {
     public static final int OK = 200;

@@ -1,24 +1,24 @@
 package zoas.demo.repository;
 
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import zoas.demo.domian.User;
 
-import javax.persistence.EntityManager;
-import java.util.List;
 import java.util.Optional;
 
 @Repository
-@RequiredArgsConstructor
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface  UserRepository extends CrudRepository<User,Long> {
 
 
 
-    User findOne(Long id);
+   Optional<User> findById(Long userid);
 
-  User findByEmail(String email);
+   User findByEmailAndPassword(String useremail, String password);
+
+   User findByEmail(String useremail);
+
+
 
 
 }

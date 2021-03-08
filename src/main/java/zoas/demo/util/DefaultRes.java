@@ -1,10 +1,9 @@
-package zoas.demo.model;
+package zoas.demo.util;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import zoas.demo.util.ResponseMessage;
 
 @Data
 @AllArgsConstructor

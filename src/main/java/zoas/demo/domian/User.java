@@ -4,6 +4,8 @@ package zoas.demo.domian;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -37,6 +39,7 @@ public class User {
     private String phoneNumber;
 
     @Column(name = "user_register_at")
+    @CreatedDate
     private LocalDateTime registerAt;
 
     @OneToMany(mappedBy = "user")

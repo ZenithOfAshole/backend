@@ -3,9 +3,7 @@ package zoas.demo.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import zoas.demo.domian.Category;
 import zoas.demo.domian.Item;
-import zoas.demo.model.DefaultRes;
 import zoas.demo.repository.ItemRepository;
 import zoas.demo.repository.UserRepository;
 
@@ -13,7 +11,6 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-@RequiredArgsConstructor
 public class ItemService {
 
     public final ItemRepository itemRepository;
