@@ -45,7 +45,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<>(); //
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
     private Cart cart;
 
 }

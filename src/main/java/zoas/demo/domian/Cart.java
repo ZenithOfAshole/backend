@@ -19,10 +19,12 @@ public class Cart {
     @Column(name = "cart_id")
     private Long id;
 
-    @OneToOne(mappedBy = "cart",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "item_id")
     private List<Item> items= new ArrayList<>();
 
     @Column(name = "cart_quantity")

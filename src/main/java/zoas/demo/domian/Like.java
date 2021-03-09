@@ -17,11 +17,13 @@ public class Like {
     @Column(name = "like_id")
     private Long id;
 
-    @OneToOne(mappedBy = "like",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "like", cascade = CascadeType.ALL)
-    private List<Item> items= new ArrayList<>();
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id")
+    private Item item;
 
 
 }
