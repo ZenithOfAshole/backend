@@ -1,1 +1,16 @@
-spring
+server:
+    address: localhost
+    port: 8080
+spring:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/localDB?serverTimezone=UTC&characterEncoding=UTF-8
+      username: root
+      password:
+    jpa:
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      generate-ddl: true
+      show-sql: true
+      hibernate:
+        format_sql : true
+        ddl-auto: create

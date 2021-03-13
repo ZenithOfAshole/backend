@@ -28,9 +28,6 @@ public class Order {
     @Column(name = "order_date")
     private LocalDateTime orderDate;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "delivery_id")
-    private Delivery delivery;
 
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) //order를 persist 걸어도 orderitems 도 persist(저장)
@@ -48,10 +45,7 @@ public class Order {
         user.getOrders().add(this);
     }
 
-    public void setDelivery(Delivery delivery) {
-        this.delivery = delivery;
-        delivery.setOrder(this);
-    }
+
 
 
 }
