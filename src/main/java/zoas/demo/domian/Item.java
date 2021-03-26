@@ -36,8 +36,9 @@ public class Item {
     @Column(name = "item_detail")
     private String detail;      // 제품 설명
 
-    //todo @OneToMany (mappedBy = "item" ,fetch = FetchType.LAZY)  // 자 : cart에 여러개의 item이 들어갈 수 있지 / 하지만 한 item이 여러 카트에 들어갈 수 잇지
-  //todo  private Cart cart;
+    @OneToMany  (mappedBy = "item" ,fetch = FetchType.LAZY)  // 자 : cart에 여러개의 item이 들어갈 수 있지 / 하지만 한 item이 여러 카트에 들어갈 수 잇지
+    private List<CartItem> cartItems = new ArrayList<>();
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
