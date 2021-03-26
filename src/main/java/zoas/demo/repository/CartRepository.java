@@ -23,6 +23,9 @@ public class CartRepository {
         return em.find(Cart.class,id);
     }
 
+    private void deleteCart(Cart cart){
+        em.remove(cart);
+    }
 
 
 }

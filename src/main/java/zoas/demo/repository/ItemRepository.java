@@ -29,7 +29,7 @@ public class ItemRepository {
     }
 
     public List<Item> findByCategory(Long categoryId){  //카테고리별 아이템 불러오기
-        return em.createQuery("select i from Item  i where i.categories = :categoryId ",Item.class)
+        return em.createQuery("select i from Item  i where i.category = :categoryId ",Item.class)
                 .setParameter("categoryId",categoryId)
                 .getResultList();
     }
