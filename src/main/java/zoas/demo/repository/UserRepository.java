@@ -1,6 +1,7 @@
 package zoas.demo.repository;
 
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import zoas.demo.domian.User;
@@ -8,11 +9,11 @@ import zoas.demo.domian.User;
 import java.util.Optional;
 
 @Repository
-public interface  UserRepository extends CrudRepository<User,Long> {
+public interface  UserRepository extends JpaRepository<User,Long> {
 
 
 
-   Optional<User> findById(Long userid);
+   User findUserById(Long userid);
 
    User findByEmailAndPassword(String useremail, String password);
 

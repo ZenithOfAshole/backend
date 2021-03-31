@@ -2,30 +2,25 @@ package zoas.demo.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import zoas.demo.domian.Cart;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
-@RequiredArgsConstructor
-public class CartRepository {
+public interface CartRepository extends CrudRepository<Cart,Long> {
 
-    @Autowired
-    private final EntityManager em;
+    void deleteByUserId(Long userId); // 장바구니 전체 취소
 
-    public void save(Cart cart){
-        em.persist(cart);
-    }
+    Cart findByUserId(Long userId);
 
-    public Cart findCart(Long id){
-        //회원에 맞는 장바구니 가져오기
-        return em.find(Cart.class,id);
-    }
+    void deleteByUserIdAndItemId(Long userId, Long ItemId); // 장바구니에서 하나 지우는 거
 
-    private void deleteCart(Cart cart){
-        em.remove(cart);
-    }
+
+
+
 
 
 }

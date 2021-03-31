@@ -29,12 +29,23 @@ public class CartItem {
 
     private int count;
 
+    //생성 메서드
+    public static CartItem createCartItem(Item item, int cartPrice, int count){
+        CartItem cartItem = new CartItem();
+        cartItem.setItem(item);
+        cartItem.setCartPrice(cartPrice);
+        cartItem.setCount(count);
+
+        item.removeStock(count);
+        return cartItem;
+    }
 
 
     //비지니스 로직
     public int getTotalPrice(){
         return getCartPrice() * getCount();
     }
+
 
 
 

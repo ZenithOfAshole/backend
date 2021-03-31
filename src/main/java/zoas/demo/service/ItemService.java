@@ -19,8 +19,6 @@ public class ItemService {
  //   private final Like
     private final UserRepository userRepository;
 
-
-
     ItemService(final ItemRepository itemRepository,final UserRepository userRepository){
         this.itemRepository = itemRepository;
         this.userRepository = userRepository;
@@ -29,7 +27,7 @@ public class ItemService {
 
     public List<Item> findItemsByCategoryId(Long categoryId){ //category별 item list 불러오기
 
-        return itemRepository.findByCategory(categoryId);
+        return itemRepository.findItemByCategory(categoryId);
     }
 
 //    public DefaultRes findCategoryItemsByLike(final int categoryId, final int curId){
@@ -38,7 +36,7 @@ public class ItemService {
 //    }
 
     public Item findOne(Long itemId){ //item 정보 불러오기
-        return itemRepository.findOne(itemId);
+        return itemRepository.findItemById(itemId);
     }
 
 

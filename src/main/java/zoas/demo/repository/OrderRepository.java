@@ -3,23 +3,20 @@ package zoas.demo.repository;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import zoas.demo.domian.Order;
 
 import javax.persistence.EntityManager;
+import java.util.Optional;
 
 @Repository
-@RequiredArgsConstructor
-public class OrderRepository {
+public interface OrderRepository extends JpaRepository<Order,Long> {
 
-    @Autowired
-    private final EntityManager em;
 
-    public void save(Order order){
-        em.persist(order);
-    }
 
-//    public Order findByUserId(){
-//
-//    }
+  Optional<Order> findById(Long orderId);
+
+
 }
